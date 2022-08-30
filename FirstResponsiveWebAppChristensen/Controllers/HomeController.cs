@@ -13,20 +13,27 @@ namespace FirstResponsiveWebAppChristensen.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.Age = 0;
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Index(UserAgeModel model)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                ViewBag.Name = model.Name;
+                ViewBag.Age = model.AgeThisYear();
+            }
+            else
+            {
+                ViewBag.Age = 0;
+            }
+            
+            return View(model);
         }
     }
 }
