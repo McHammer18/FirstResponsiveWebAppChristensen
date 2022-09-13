@@ -16,21 +16,21 @@
     <main class="container-md">
         <h1>Guess Your Age</h1>
         <form asp-action="Index" method="post" class="align-content-center">
-            <div asp-validation-summary="All"></div>add 
-            <div class="form-group">
-                <label asp-for="Name" class="control-label">Enter your Name</label>
-                <input asp-for="Name" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label asp-for="birthYear" class="control-label">Enter your year of Birth</label>
-                <input asp-for="birthYear" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label class="control-label">@ViewBag.Name, Your age is</label>
-                <input value="@ViewBag.Age.ToString()" class="form-control" readonly />
-            </div>
-            <button type="submit" class="btn btn-primary">Calculate Age</button>
-            <a asp-action="Index">Clear</a>
+           <div asp-validation-summary="All"></div> 
+           <div class="form-group">
+              <label asp-for="Name" class="control-label">Enter your Name</label>
+              <input asp-for="Name" class="form-control"/>
+           </div>
+           <div class="form-group">
+              <label asp-for="birthYear" class="control-label">Enter your year of Birth</label>
+              <input asp-for="birthYear" class="form-control"/>
+           </div>
+           <div class="form-group">
+              <label class="control-label">@ViewBag.Name, Your age is</label>
+              <input value="@ViewBag.Age.ToString()" class="form-control" readonly />
+           </div>
+           <button type="submit" class="btn btn-primary">Calculate Age</button>
+           <a asp-action="Index">Clear</a>
         </form>
     </main>
     </body>
